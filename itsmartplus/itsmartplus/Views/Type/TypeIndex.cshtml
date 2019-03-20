@@ -1,0 +1,44 @@
+﻿@model IEnumerable<itsmartplus.Models.type>
+@{
+    ViewData["Title"] = "TypeIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Type</h1>
+<br />
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"><a asp-action="TypeAdd" asp-controller="Type" class="btn btn-success">Add type</a></div>
+    </div>
+    <br />
+    <form asp-controller="Type" asp-action="TypeIndex" method="get">
+        <div class="row">
+            <div class="col-md-3"><input type="text" placeholder="Search" class="form-control" value="@ViewData["currentSearch"]"/></div>
+            <div class="col-md-3"><input type="button" value="Search" class="btn btn-info" /></div>
+        </div>
+    </form>
+
+    <br />
+    <br />
+    <table class="table table-responsive-sm">
+        <tr class="table table-active">
+            <th><a asp-action="TypeIndex" asp-controller="Type" asp-route-sortorder="@ViewData["idsort"]"> ID</a></th>
+            <th><a asp-action="TypeIndex" asp-controller="Type" asp-route-sortorder="@ViewData["namesort"]">Type Name </a></th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.t_id</td>
+                <td>@item.t_name</td>
+                <td><a asp-action="TypeEdit" asp-controller="Type" asp-route-t_id="@item.t_id" class="btn btn-warning">Update</a></td>
+                <td><a asp-action="TypeDel" asp-controller="Type" asp-route-t_id="@item.t_id" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,70 @@
+﻿@model itsmartplus.Models.category
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/bootstrapSelect/css/bootstrap-select.css" rel="stylesheet" />
+<h1>Create</h1>
+
+<h4>category</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                ID
+                @*<label asp-for="cat_brand" class="control-label"></label>*@
+                <input asp-for="cat_id" class="form-control" />
+                <span asp-validation-for="cat_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Brand
+                @*<label asp-for="cat_brand" class="control-label"></label>*@
+                <select asp-for="br_id" class="form-control selectpicker" data-live-search="true" asp-items="Model.BrandSelectList"></select>
+                <span asp-validation-for="br_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Model
+                @*<label asp-for="cat_models" class="control-label"></label>*@
+                <input asp-for="cat_models" class="form-control" />
+                <span asp-validation-for="cat_models" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                S/N
+                @*<label asp-for="cat_models" class="control-label"></label>*@
+                <input asp-for="SerialNumber" class="form-control" />
+               
+            </div>
+            <div class="form-group">
+                Type
+                @*<label asp-for="t_id" class="control-label"></label>*@
+                <select asp-for="t_id" class="form-control selectpicker" data-live-search="true" asp-items="Model.TypeSelectList"></select>
+                <span asp-validation-for="t_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Caretaker
+                @*<label asp-for="em_id" class="control-label"></label>*@
+                <select asp-for="em_id" class="form-control selectpicker" data-live-search="true" asp-items="Model.EmSelectList"></select>
+                <span asp-validation-for="em_id" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="ad_id" class="control-label"></label>
+            <select asp-for="ad_id" class="form-control" asp-items="ViewBag.ad_id"></select>
+        </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="~/bootstrapSelect/js/bootstrap-select.js" type="text/javascript"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
