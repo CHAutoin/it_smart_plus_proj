@@ -1,0 +1,45 @@
+.head{
+    padding-top: 14px;
+}
+div.nav-wrapper.red.accent-3.side > a.sidenav-trigger > i.material-icons,
+.dropdown-trigger.right {
+    margin-top: -5px;
+    margin-left: -5px;
+}
+
+/*
+.indicators{
+    display: none;
+}
+*/
+
+ul#more{
+  top: -5px;
+}
+body{
+  background: #f3f3f3;
+}
+div.card{
+    cursor: pointer;
+  }
+.unl-t-bold{
+    text-decoration: underline; 
+    font-weight: bold;
+}
+
+ul > li {
+    cursor: pointer;
+}
+
+a.carousel-item.active,
+a.carousel.carousel-slider{
+  width: 500px;
+}
+
+.container-off{
+  background: #ffffff;
+}
+
+.text-bold{
+  font-weight: 600;
+}

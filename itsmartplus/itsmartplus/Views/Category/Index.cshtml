@@ -1,0 +1,92 @@
+﻿@model IEnumerable<itsmartplus.Models.category>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<link href="~/bootstrapSelect/css/bootstrap-select.css" rel="stylesheet" />*@
+<h1>Index</h1>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+@*<select id="select-testing" class="selectpicker" data-live-search="true" title="Please select">
+        <option>Ant</option>
+        <option>Bat</option>
+        <option>Cat</option>
+        <option>Dog</option>
+        <option>Egg</option>
+    </select>*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+                @*@Html.DisplayNameFor(model => model.cat_brand)*@
+            </th>
+            <th>
+                Brand
+                @*@Html.DisplayNameFor(model => model.cat_brand)*@
+            </th>
+            <th>
+                Model
+                @*@Html.DisplayNameFor(model => model.cat_models)*@
+            </th>
+            @*<th>
+
+                    @Html.DisplayNameFor(model => model.cat_image)
+                </th>*@
+            <th>
+                Type
+                @*@Html.DisplayNameFor(model => model.Type)*@
+            </th>
+            <th>
+                Caretaker
+                @*@Html.DisplayNameFor(model => model.Employee)*@
+            </th>
+            <th>
+                S/N
+                @*@Html.DisplayNameFor(model => model.Admintable)*@
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cat_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand.br_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cat_models)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Type.t_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.em_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.cat_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.cat_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.cat_id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@*@section Scripts{
+    <script src="~/bootstrapSelect/js/bootstrap-select.js"></script>
+}*@

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<itsmartplus.Models.admintable>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               ID
+            </th>
+            <th>
+               Password
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Lastname
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ad_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ad_pass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ad_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ad_lastname)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ad_id">Edit</a> |
+                @*<a asp-action="Details" asp-route-id="@item.ad_id">Details</a> |*@
+                <a asp-action="Delete" asp-route-id="@item.ad_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

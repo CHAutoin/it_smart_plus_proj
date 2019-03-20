@@ -1,0 +1,158 @@
+﻿@*@model itsmartplus.Models.category*@
+@model itsmartplus.Models.ViewModels.pmViewModels
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib//css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/lib/css/main.css">
+</head>
+<body>
+
+    <nav class="head red darken-4">
+        <div class="nav-wrapper red accent-3 side">
+            <a href="#" data-target="home" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a class='dropdown-trigger right' href='#' data-target='more'><i class="material-icons">more_vert</i></a>
+        </div>
+    </nav>
+    <!-- Dropdown Structure -->
+    <ul id='more' class='dropdown-content'>
+        <li><a href="#!" class="grey-text"><i class="material-icons">exit_to_app</i>logut</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="col s12">
+                <a href="#!" class="breadcrumb" id="Home" onclick="link(this.id);">Home</a>
+                <a href="#!" class="breadcrumb" id="PM" onclick="link(this.id);">./</a>
+                <a href="#!" class="breadcrumb" id="brandx" onclick="getUrlVars();">Epson</a>
+                <a href="#!" class="breadcrumb" id="detail" onclick="link(this.id);">Detail</a>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        /*
+            table,tr,td{
+              border : 1px solid red;
+            }
+        */
+    </style>
+
+    <!-- Start container -->
+    <div class="container">
+
+        <table>
+            <tr>
+                <td>
+                    <img src="~/images/printers.png" alt="printer" width="120">
+                </td>
+                <td>
+                    <div class="row">
+                        <br>
+                        <div class="col s12">
+                            <strong>ID : </strong><span>@Model.category.cat_id</span>
+                        </div>
+                        <br>
+                        <div class="col s12">
+                            <strong>Caretaker : @Model.category.em_id : @Model.category.Employee.em_name</strong>
+                        </div>
+
+                        <br>
+
+                        <div class="col">
+                            <label>
+                                <input type="checkbox" checked />
+                                <span>Y</span>
+                            </label>
+                        </div>
+
+                        <div class="col">
+                            <label>
+                                <input type="checkbox" disabled="disabled" />
+                                <span>N</span>
+                            </label>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <a class="btn waves waves-effect" asp-action="printer_pm" asp-controller="pm" asp-route-prid="@Model.category.cat_id" asp-route-prtype="@Model.category.Type.t_name">PM</a>
+                    @*<button id="PM_this" class="btn waves waves-effect" onclick="link(this.id);">PM</button>*@
+                </td>
+            </tr>
+        </table>
+        <!-- Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>รหัสการซ่อม</th>
+                    <th>วันที่ซ่อม</th>
+                    <th>ราคา</th>
+                    <th>ร้านที่ส่งซ่อม</th>
+                    <th>รายละเอียด</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>fx-0001</td>
+                    <td>19/3/2561</td> 
+                    <td>1500</td>
+                    <td>บจก.สยามไมโครซอฟต์</td>
+                    <td>เปลี่ยนลูกยาง</td>
+                </tr>
+                <tr>
+                    <td>fx-0002</td>
+                    <td>5/2/2561</td>
+                    <td>685</td>
+                    <td>บจก.สยามไมโครซอฟต์</td>
+                    <td>เปลี่ยนซับหมึก</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- end to delete-->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Developer by IT CH.</h5>
+                    <p class="grey-text text-lighten-4">You can use selected, PM, BM, MTTR, MTBF</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 Copyright CH auto industry
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+    <!-- End container -->
+    <script src="~/lib/js/materialize.min.js"></script>
+    <script src="~/lib/js/main.js"></script>
+    <script>
+        const host = window.location.host;
+        const protocol = window.location.protocol;
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            //return vars;
+            //window.location.href =
+            let x = `${protocol}//${host}/pm/SelectListprinterbybrand?pr=${vars.pr}`;
+            window.location.href = x;
+            //document.getElementById('brandx').innerHTML = vars.pr.toUpperCase();
+        }
+    </script>
+</body>
+</html>
