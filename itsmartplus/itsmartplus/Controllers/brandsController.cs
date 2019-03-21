@@ -12,16 +12,7 @@ namespace itsmartplus.Controllers
     public class brandsController : Controller
     {
         private readonly ItSmartContext _context;
-        int hello1;
-        int hello1ggh;
-        int hellhho1;
-        int helhhlo1;
-        int helhlo1;
-        int helhhhlo1;
-        int helhfflo1;
-        int hefffllo1;
-        int helhfhkhkflo1;
-        int helhfhlo1;
+
         public brandsController(ItSmartContext context)
         {
             _context = context;
