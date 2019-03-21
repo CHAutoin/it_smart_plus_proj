@@ -4,28 +4,85 @@
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Login</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./lib//css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./lib/css/main.css">
 </head>
 <body>
-    <form method="post" asp-action="Chk_mLogin" asp-controller="Login">
-        <p class="text-danger">@TempData["error"]</p>
-        <div class="form-group">
-            <label>Username</label>
-            <input type="text" name="user" class="form-control" />
+
+    <nav class="head red darken-4">
+        <div class="nav-wrapper red accent-3 side">
+            <a href="#" data-target="home" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a class='dropdown-trigger right' href='#' data-target='more'><i class="material-icons">more_vert</i></a>
         </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" name="pass" class="form-control" />
+    </nav>
+    <!-- Dropdown Structure -->
+    <ul id='more' class='dropdown-content'>
+        <li><a href="#!" class="grey-text"><i class="material-icons">exit_to_app</i>logut</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="col s12">
+                <a href="#!" class="breadcrumb" id="Home" onclick="link(this.id);">Home</a>
+                <a href="#!" class="breadcrumb" id="PM" onclick="link(this.id);">PM</a>
+                <a href="#!" class="breadcrumb">Check</a>
+            </div>
         </div>
-        <div class="form-group">
-            <input type="submit" value="Login" class="btn btn-success" />
-           
+    </nav>
+
+    <!-- Start container -->
+    <div class="container">
+        <div class="row" style="margin-top:50px;">
+            <form class="col s12">
+                <div class="row">
+                    <div class="card-panel red lighten-1 text-white"><strong>Username</strong> And <strong>Password</strong> has error !</div>
+                    <div class="input-field col s12">
+                        <div class="input-field col s12">
+                            <input value="" id="username" type="text" class="validate">
+                            <label class="active" for="username">Username</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <div class="input-field col s12">
+                            <input value="" id="password" type="text" class="validate">
+                            <label class="active" for="password">Password</label>
+                        </div>
+                        <a class="waves-effect waves-light btn right" id="btn_search"><i class="material-icons left">person_pin</i>Sign In</a>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
-   
+    </div>
+    <!-- end to delete
+        style="bottom:0; position: fixed; width: 100%;"
+        -->
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Developer by IT CH.</h5>
+                    <p class="grey-text text-lighten-4">You can use selected, PM, BM, MTTR, MTBF</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 Copyright CH auto industry
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+    <!-- End container -->
+    <script src="./lib/js/materialize.min.js"></script>
+    <script src="./lib/js/main.js"></script>
 </body>
 </html>
