@@ -11,6 +11,12 @@ namespace itsmartplus.Controllers
 {
     public class AdminController : Controller
     {
+		string testa = "";
+		string tessc = "";
+		string tessff = "";
+		string tessgg = "";
+		string tesshh = "";
+		string tesskk = "";
         private readonly ItSmartContext _context;
         public AdminController(ItSmartContext context)
         {
