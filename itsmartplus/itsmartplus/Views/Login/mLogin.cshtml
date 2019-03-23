@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="./lib//css/materialize.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="./lib/css/main.css">
 </head>
+
+
+
 <body>
 
     @*<nav class="head red darken-4">
@@ -40,22 +43,35 @@
     <!-- Start container -->
     <div class="container">
         <div class="row" style="margin-top:50px;">
-            <form class="col s12">
+            <form asp-controller="Login" asp-action="Chk_mLogin" method="post" class="col s12">
                 <div class="row">
-                    <div class="card-panel red lighten-1 text-white"><strong>Username</strong> And <strong>Password</strong> has error !</div>
+
+                    @if (TempData["error"].Equals(""))
+                    {
+
+                    }
+                    else
+                    {
+                        @*<div class="card-panel red lighten-1 text-white"><strong>Username</strong> And <strong>Password</strong>are invalid.</div>*@
+                        @*<div class="card-panel red lighten-1 text-white">@TempData["error"] </div>*@
+                        @*<div class="card-panel red lighten-1 text-white">@Html.Raw(ViewBag.error) </div>*@
+                        <div class="card-panel red lighten-1 text-white">@Html.Raw(TempData["error"]) </div>
+                    }
+
                     <div class="input-field col s12">
                         <div class="input-field col s12">
-                            <input value="" id="username" type="text" class="validate">
+                            <input value="" id="username" name="user" type="text" class="validate">
                             <label class="active" for="username">Username</label>
                         </div>
                     </div>
 
                     <div class="input-field col s12">
                         <div class="input-field col s12">
-                            <input value="" id="password" type="text" class="validate">
+                            <input value="" id="password" name="pass" type="password" class="validate">
                             <label class="active" for="password">Password</label>
                         </div>
-                        <a class="waves-effect waves-light btn right" id="btn_search"><i class="material-icons left">person_pin</i>Sign In</a>
+                        <input type="submit" value="SIGN IN" class="waves-effect waves-light btn right" id="btn-search" />
+                        @* <a class="waves-effect waves-light btn right" id="btn_search"><i class="material-icons left">person_pin</i>Sign In</a>*@
                     </div>
                 </div>
             </form>
@@ -85,4 +101,5 @@
     <script src="./lib/js/materialize.min.js"></script>
     <script src="./lib/js/main.js"></script>
 </body>
+
 </html>

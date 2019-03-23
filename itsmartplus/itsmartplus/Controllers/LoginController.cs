@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace itsmartplus.Controllers
 {
-	
-    public class LoginController : Controller
-    {
+
+	public class LoginController : Controller
+	{
 		ItSmartContext db;
 		public LoginController(ItSmartContext _db)
 		{
@@ -20,11 +20,13 @@ namespace itsmartplus.Controllers
 		}
 		public IActionResult mLogin()
 		{
+			TempData["error"] = "";
 			return View();
 		}
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
+		[ActionName("mLogin")]
 		public async Task<IActionResult> Chk_mLogin(string user, string pass)
 		{
 			var udat = await db.admintables.Where(m => m.ad_id.Equals(user) && m.ad_pass.Equals(pass)).FirstOrDefaultAsync();
@@ -37,12 +39,14 @@ namespace itsmartplus.Controllers
 			}
 			else
 			{
-				TempData["error"] = "Username or password incorrect.";
-				return View(nameof(mLogin));
+				
+				TempData["error"] = @"<strong> Username </strong> or <strong> Password </strong> are invalid. &nbsp;";
+
+				return View();
 			}
 		}
-		
-		
+
+
 		[SessionTimeout]
 		public IActionResult mMainMenu()
 		{
@@ -56,11 +60,11 @@ namespace itsmartplus.Controllers
 		}
 		[SessionTimeout]
 		public IActionResult HelpDeskWelcome()
-        {
-            return View();
+		{
+			return View();
 
-        }
-		
+		}
+
 		public IActionResult Logout()
 		{
 			HttpContext.Session.Remove(user_pass.employee_ID);
