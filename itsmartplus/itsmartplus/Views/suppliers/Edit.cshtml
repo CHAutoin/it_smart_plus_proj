@@ -15,6 +15,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="supp_id" />
             <div class="form-group">
+                <label asp-for="supp_id" class="control-label"></label>
+                <input disabled asp-for="supp_id" class="form-control" />
+                
+            </div>
+            <div class="form-group">
                 <label asp-for="supp_name" class="control-label"></label>
                 <input asp-for="supp_name" class="form-control" />
                 <span asp-validation-for="supp_name" class="text-danger"></span>

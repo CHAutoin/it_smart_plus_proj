@@ -10,10 +10,12 @@ namespace itsmartplus.Models
 	public class supplier
 	{
 		[Key]
-		[Display(Name ="ID")]
+		[Display(Name = "ID")]
+		[Required(ErrorMessage = "ID is required.")]
 		public string supp_id { get; set; }
 
-		[Range(1, 255, ErrorMessage = "Range 1-255.")]
+		//[Range(1, 255, ErrorMessage = "Range 1-255.")]
+		[Required(ErrorMessage ="Name is required.")]
 		[Display(Name = "Name")]
 		public string supp_name { get; set; }
 		[MaxLength(255,ErrorMessage ="Max length 255.")]
