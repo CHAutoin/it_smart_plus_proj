@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using itsmartplus.Models;
 
 namespace itsmartplus.Models
 {
@@ -21,5 +22,6 @@ namespace itsmartplus.Models
 
 		public DbSet <pm_category> pm_Categories { get; set; }
 		public DbSet <pm_category_detail> pm_Categories_details { get; set; }
+		public DbSet<supplier> supplier { get; set; }
 	}
 }

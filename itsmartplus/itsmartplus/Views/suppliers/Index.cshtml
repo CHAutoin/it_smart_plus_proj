@@ -1,0 +1,78 @@
+﻿@model IEnumerable<itsmartplus.Models.supplier>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Supplier</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.supp_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.supp_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.supp_addr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.supp_phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.supp_mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.supp_mail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.supp_fax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.supp_tin)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.supp_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supp_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supp_addr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supp_phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supp_mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supp_mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supp_fax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.supp_tin)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.supp_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.supp_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.supp_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

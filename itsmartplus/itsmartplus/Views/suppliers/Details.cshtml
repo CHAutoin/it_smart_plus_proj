@@ -1,0 +1,61 @@
+﻿@model itsmartplus.Models.supplier
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>supplier</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.supp_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.supp_name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.supp_addr)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.supp_addr)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.supp_phone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.supp_phone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.supp_mobile)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.supp_mobile)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.supp_mail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.supp_mail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.supp_fax)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.supp_fax)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.supp_tin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.supp_tin)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.supp_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
