@@ -13,7 +13,13 @@ namespace itsmartplus.Models
 		public string rep_id { get; set; }
 		public string rep_date { get; set; }
 
-		
+
+		[ForeignKey("ad_id")]
+		public virtual admintable Admintable { get; set; }
+		public string ad_id { get; set; }
+
+		[ForeignKey("supp_id")]
+		public virtual supplier Supplier { get; set; }
 		public string supp_id { get; set; }
 	}
 }
